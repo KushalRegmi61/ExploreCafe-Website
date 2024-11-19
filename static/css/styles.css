@@ -1,0 +1,410 @@
+@charset "utf-8";
+
+/* Base Colors and Gradients */
+html {
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.58),
+    rgba(12, 8, 24, 0.9)
+  );
+
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.68),
+    rgba(12, 10, 22, 0.86)
+  );
+
+  --imp-text-color: #c770f0;
+}
+
+/* Navigation Links */
+.nav-link,
+.nav-item {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-item:hover {
+  color: var(--imp-text-color);
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #ffd700 !important; /* Gold color for hover effect */
+}
+
+
+/* General logo styling */
+.logo {
+  position: relative; /* For positioning child elements */
+  display: inline-flex;
+  align-items: center;
+  font-family: "Cookie", cursive;
+  font-size: 2rem;
+  color: #ffffff; /* Default color for text */
+}
+
+/* Styling for the coffee cup icon */
+.cup-icon {
+  font-size: 3rem; /* Larger size for prominence */
+  color: #333333; /* Dark color for the coffee cup */
+  z-index: 1; /* Place the cup behind the text */
+  position: relative;
+}
+
+/* Styling for the text inside the cup */
+.logo-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the text */
+  z-index: 2; /* Place text above the cup */
+  color: #ffffff; /* White text for contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for text */
+}
+
+/* Hover effect for the logo */
+.logo:hover .cup-icon {
+  color: #ffffff; /* Change cup color to match branding */
+}
+
+.logo:hover .logo-text {
+  color: #ffd700; /* Premium gold color on hover */
+}
+
+
+/* Headings */
+.heading {
+  font-family: "Georgia", serif;
+  font-style: normal;
+  font-size: 3rem; /* Larger heading for better impact */
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 2rem; /* Adds space below the heading */
+}
+
+/* Subheading */
+.subheading {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-size: 1.75rem; /* Slightly larger subheading */
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+/* secheading */
+.secheading {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Body Text */
+.body-text {
+  font-family: "Georgia", serif;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: #ffffff;
+  text-align: justify;
+  margin-bottom: 1.5rem; /* Adds spacing between paragraphs */
+}
+
+/* Button Styling */
+.btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.5em 1.2em;
+  border: 1px solid var(--imp-text-color);
+  color: var(--imp-text-color);
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--imp-text-color);
+  color: #ffffff;
+}
+
+/* Section Backgrounds */
+.section {
+  background: var(--section-background-color);
+  padding: 3em 1.5em;
+  border-radius: 8px;
+  margin: 1.5em 0; /* Increased margin for better spacing */
+}
+
+/* Image Overlay */
+.image-overlay {
+  background: var(--image-gradient);
+  border-radius: 10px;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+/* Ambassador link styling */
+.ambassador {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-align: center; /* Center align ambassador link */
+  color: #c770f0;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px; /* Adds space above the link */
+}
+
+.ambassador:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Spacing adjustments */
+.mb-4 {
+  margin-bottom: 2rem; /* Larger bottom margin for better spacing */
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+/* Button styles */
+.btn.book-now {
+  font-size: 1.1rem;
+  padding: 0.8em 1.5em;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* Global styling for the paragraph in the landing section */
+#landing .body-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  padding: 10px 20px;
+  text-align: justify;
+  text-align-last: center;
+  margin: 0 auto 20px;
+}
+
+/* General styling for all paragraphs in this section */
+.row .col-sm-4 p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 10px 15px;
+  text-align: justify;
+  text-align-last: center;
+  border-radius: 8px;
+  margin-bottom: 1.5rem; /* Increased margin between paragraphs */
+}
+
+/* Optional hover effect on paragraphs */
+.row .col-sm-4 p:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: black;
+}
+
+/* Ensure the images are responsive and properly resized within their container */
+.benefit {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Optional: Adding a hover effect to make the images look interactive */
+.benefit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem; /* Smaller heading on mobile */
+  }
+
+  .subheading {
+    font-size: 1.25rem; /* Slightly smaller subheading */
+  }
+
+  .benefit {
+    width: 100%;
+    height: auto;
+  }
+}
+
+list-inline-item a {
+  color: #c770f0;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.list-inline-item a:hover {
+  color: #6c1e99;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* "Go to Top" button styling */
+#goToTop {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: none;
+  z-index: 1000;
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px; /* Rectangle shape */
+  font-size: 1.2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#goToTop:hover {
+  background-color: #c770f0;
+  color: white;
+}
+
+/* Default card appearance */
+.cafe-card {
+  border: 1px solid #ccc; /* Subtle border for a clean look */
+  border-radius: 15px; /* Soft rounded corners */
+  overflow: hidden; /* Ensure child elements stay within bounds */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease; /* Smooth animations */
+}
+
+/* Hover effect for the entire card */
+.cafe-card:hover {
+  transform: translateY(-10px) scale(1.03); /* Slight lift and zoom effect */
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  border-color: #c770f0; /* Highlight border with accent color */
+  background-color: #e9e4fc; /* Subtle lavender background on hover */
+  cursor: pointer; /* Indicate interactivity */
+}
+
+/* Image section */
+.cafe-image {
+  overflow: hidden; /* Crop overflow for clean edges */
+  transition: transform 0.4s ease; /* Smooth zoom animation */
+}
+
+.cafe-image img {
+  width: 100%; /* Ensure the image fills its container */
+  height: 100%; /* Ensure the image fills its container */
+  object-fit: cover; /* Maintain aspect ratio and crop overflow */
+  transition: transform 0.4s ease; /* Smooth zoom animation */
+}
+
+.cafe-card:hover .cafe-image img {
+  transform: scale(1.1); /* Gentle zoom effect on hover */
+}
+
+/* Content section */
+.cafe-content {
+  padding: 20px; /* Spacing for a neat layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Align content neatly */
+  transition: background 0.4s ease; /* Smooth background change */
+}
+
+.cafe-card:hover .cafe-content {
+  background: linear-gradient(to bottom, #e9e4fc, #f3e8fd); /* Soft lavender tint on hover */
+}
+
+
+.cafe-card:hover .cafe-content h3 {
+  color: #c770f0; /* Accent color on hover */
+}
+
+.cafe-card:hover .card-text {
+  color: #4a4a4a; /* Slightly darker for hover state */
+}
+
+.cafe-content .card-text i {
+  color: #c770f0; /* Accent color for the icon */
+  font-size: 1.2rem; /* Slightly larger for visibility */
+  transition: color 0.4s ease; /* Smooth icon color change */
+}
+
+.cafe-card:hover .card-text i {
+  color: #333; /* Darken icon on hover */
+}
+
+/* Optional: Add transition for a subtle glow effect on hover */
+.cafe-card:hover {
+  outline: 3px solid rgba(199, 112, 240, 0.2); /* Glow effect */
+}
+
+
+footer a {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #1dbf73; /* A vibrant green for hover */
+  text-decoration: underline;
+}
+
+footer i {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer i:hover {
+  color: #1dbf73;
+  transform: scale(1.2);
+}
+
+footer h5 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+footer p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
