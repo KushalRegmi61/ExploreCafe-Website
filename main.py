@@ -19,6 +19,7 @@ import os
 load_dotenv()
 EMAIL = os.getenv("EMAIL")
 PASSWORD= os.getenv("EMAIL_PASSWORD")
+DB_URL = os.getenv("DB_URL", "sqlite:///cafes.db")
 
 #creating a flask app
 app = Flask(__name__)
@@ -38,7 +39,7 @@ class Base(DeclarativeBase):
     
 
 #creating a database
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cafes.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
