@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container text-center mt-5">
+    <div class="card shadow-sm p-4">
+        <h2 class="mb-4 text-danger subheading">Confirm Deletion</h2>
+        <p class="text-muted body-text fs-5">
+            Are you sure you want to delete <strong>{{ cafe.name }}</strong> located at 
+            <strong>{{ cafe.location }}, {{ cafe.city }}</strong>?
+        </p>
+
+        <!-- Details of the Cafe -->
+        <ul class="list-group list-group-flush my-4 body-text text-center">
+            <li class="list-group-item">
+            <i class="fas fa-wifi text-success me-2"></i>
+            <strong>WiFi:</strong> {{ "Available" if cafe.has_wifi else "Not available" }}
+            </li>
+            <li class="list-group-item">
+            <i class="fas fa-plug text-warning me-2"></i>
+            <strong>Power Sockets:</strong> {{ "Available" if cafe.has_socket else "Not available" }}
+            </li>
+            <li class="list-group-item">
+            <i class="fas fa-chair text-secondary me-2"></i>
+            <strong>Seating Capacity:</strong> {{ cafe.seats | default("Not specified") }}
+            </li>
+            <li class="list-group-item">
+            <i class="fas fa-coffee text-brown me-2"></i>
+            <strong>Coffee Price:</strong> {{ cafe.coffee_price | default("Not specified") }}
+            </li>
+        </ul>
+
+        <!-- Confirmation Buttons -->
+        <div class="d-flex justify-content-center mt-4">
+            <form action="{{ url_for('delete_cafe_confirm', cafe_id=cafe.id) }}" method="post">
+                <button type="submit" class="btn btn-danger mx-2">Yes, Delete</button>
+            </form>
+            <a href="{{ url_for('explore_cafe') }}" class="btn btn-secondary mx-2">Cancel</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
