@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page Header Section -->
+{% if cafe %}
+<header id="place-photos" class="position-relative bg-black" style="background-image: url('{{ cafe.img_url }}'); background-size: cover; background-position: center; height: 500px; filter: brightness(65%);">
+    <div class="gradient position-absolute top-0 w-100 h-100 d-flex flex-column justify-content-between">
+        <!-- Top Right Button -->
+        <div class="d-flex justify-content-end p-3">
+            <a 
+                id="google-maps-link" 
+                href="{{ cafe.map_url }}" 
+                class="btn btn-light btn-lg shadow" 
+                target="_blank" 
+                title="Open Google Maps">
+                <i class="fas fa-map-marker-alt me-2"></i> Find on Google Maps
+            </a>
+        </div>
+
+        <!-- Bottom Left Heading -->
+        <div class="text-start px-4 pb-3">
+            <h1 class="subheading">{{ cafe.name }}</h1>
+        </div>
+    </div>
+</header>
+
+
+<!-- Main Content Section -->
+<!-- Main Content Section -->
+<section class="container py-5">
+    <div class="row g-4 align-items-start">
+        <!-- Cafe Details Section -->
+        <div class="col-lg-7 pt-lg-4">
+            <h2 class="mb-4 text-primary fw-bold subheading">About {{ cafe.name }}</h2>
+            <p class="text-muted fs-5 body-text">{{ cafe.description | default("This cafe offers a welcoming atmosphere perfect for working, relaxing, or socializing.") }}</p>
+        </div>
+        <!-- Cafe Card Section -->
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <h3 class="mb-3 text-secondary fw-bold secheading">Cafe Details</h3>
+                    <ul class="list-group list-group-flush body-text">
+                        <li class="list-group-item">
+                            <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                            <strong>Address:</strong> {{ cafe.location }}, {{ cafe.city }}, {{ cafe.country }}
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-wifi text-success me-2"></i>
+                            <strong>WiFi:</strong> {{ "Available" if cafe.has_wifi else "Not available" }}
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-plug text-warning me-2"></i>
+                            <strong>Power Sockets:</strong> {{ "Available" if cafe.has_socket else "Not available" }}
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-restroom text-primary me-2"></i>
+                            <strong>Toilets:</strong> {{ "Available" if cafe.has_toilet else "Not available" }}
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-phone text-info me-2"></i>
+                            <strong>Phone Calls:</strong> {{ "Allowed" if cafe.can_take_calls else "Not allowed" }}
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-chair text-secondary me-2"></i>
+                            <strong>Seating Capacity:</strong> {{ cafe.seats | default("Not specified") }}
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-coffee text-brown me-2"></i>
+                            <strong>Coffee Price:</strong> {{ cafe.coffee_price | default("Not specified") }}
+                        </li>
+                    </ul>
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{{url_for('update_cafe')}}?post_id={{cafe.id}}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-edit me-2"></i> Update Cafe
+                        </a>
+                        <a href="{{url_for('delete_cafe', cafe_id= cafe.id)}}" class="btn btn-outline-danger btn-sm">
+                            <i class="fas fa-trash-alt me-2"></i> Delete Cafe
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Amenities Section -->
+<!-- <section class="py-5 bg-dark">
+    <div class="container">
+        <h3 class="text-center text-uppercase subheading mb-4">Amenities</h3>
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-wifi fa-3x {% if cafe.has_wifi %}text-success{% else %}text-muted{% endif %}"></i>
+                <p class="mt-2 fw-bold">{{ "Available" if cafe.has_wifi else "Not available" }}</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-plug fa-3x {% if cafe.has_socket %}text-warning{% else %}text-muted{% endif %}"></i>
+                <p class="mt-2 fw-bold">{{ "Available" if cafe.has_socket else "Not available" }}</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-toilet fa-3x {% if cafe.has_toilet %}text-info{% else %}text-muted{% endif %}"></i>
+                <p class="mt-2 fw-bold">{{ "Available" if cafe.has_toilet else "Not available" }}</p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+{% else %}
+<!-- No Cafes Found Section -->
+<section class="container py-5 text-center">
+    <div class="alert alert-warning">
+        <h3 class="fw-bold text-danger">No cafes found!</h3>
+        <p class="lead">It seems we couldn't find a cafe for this location. Why not suggest one?</p>
+        <a href="{{ url_for('add_cafe') }}" class="btn btn-primary btn-lg">
+            <i class="fas fa-plus-circle me-2"></i> Suggest a New Cafe
+        </a>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
