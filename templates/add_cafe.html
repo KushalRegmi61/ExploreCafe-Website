@@ -1,0 +1,73 @@
+{% from "bootstrap5/form.html" import render_form %} 
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="intro text-center py-5" 
+        style="background-image: url('../static/img/index_cafe.jpg'); 
+               background-size: cover; 
+               background-position: center; 
+               position: relative;">
+
+  <!-- Overlay Section with Background Color -->
+  <div class="overlay" 
+       style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; 
+              background-color: rgba(0, 0, 0, 0.5); z-index: 1;">
+  </div>
+
+  <div class="container" style="position: relative; z-index: 2;">
+    <h1 class="heading py-lg-2 text-white">Add a New Cafe</h1>
+    <p class="secheading text-white">Create a memorable place for your customers to enjoy coffee, snacks, and good vibes.</p>
+  </div>
+</header>
+
+<!-- Main Content Section -->
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <!-- Add Cafe Form -->
+      <div class="card shadow-sm border-0 rounded-lg">
+        <div class="card-body">
+          <h2 class="subheading">Fill out the form to add a new cafe</h2>
+          
+          <!-- Render Form with Novalidate and Custom Submit Button -->
+          {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success or Error Modal (Visible on form submission result) -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="alertModalLabel">
+          {% if message_type == 'success' %}
+            Success!
+          {% else %}
+            Error!
+          {% endif %}
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ message }} <!-- Success or Error message from Flask session -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn {% if message_type == 'success' %}btn-success{% else %}btn-danger{% endif %}" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript to trigger the modal if message is set -->
+{% if message %}
+  <script type="text/javascript">
+    var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+    alertModal.show();
+  </script>
+{% endif %}
+
+{% endblock %}
