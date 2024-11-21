@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block content%}
+
+<header class="intro text-center">
+  <!-- Background Section with Overlay -->
+  <div class="intro-background py-5" 
+       style="background-image: url('../static/img/index_cafe.jpg'); 
+              background-size: cover; 
+              background-position: center; 
+              position: relative;">
+    
+    <!-- Overlay (semi-transparent dark background) -->
+    <div class="overlay" 
+         style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; 
+                background-color: rgba(0, 0, 0, 0.5); 
+                z-index: 1;">
+    </div>
+
+    <!-- Content Section (Text, Buttons) -->
+    <div class="container" style="position: relative; z-index: 2;">
+      <h1 class="heading mb-5">
+        Workspaces Beyond Walls
+      </h1>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-8">
+          <p class="secheading mb-5">
+            Discover local spots to fuel your creativity and productivity.
+          </p>
+          <a class="btn btn-lg btn-success book-now mb-4" href="{{url_for('explore_cafe')}}">
+            Explore Nearby Work Spots
+          </a>
+          <p class="body-text my-4 text-white" style="text-align: center;">
+            Nothing nearby? Suggest a new place!
+          </p>
+          <a class="ambassador d-block mt-3" style="text-align: center;" href="{{url_for('add_cafe')}}">
+            Add your favorite spot now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+<!-- What is LF? -->
+<div class="container text-center py-5" id="landing">
+  <section class="row text-center">
+      <div class="col-sm-4 xs-padding-top mb-4 mb-sm-0">
+          <i class="fa fa-fw fa-laptop fa-3x mb-3" style="color: #28a745;"></i>
+          <h3 class="subheading mb-3">Boost Productivity</h3>
+          <p class="body-text text-justify px-3 py-2" style="font-size: 1.1rem; line-height: 1.6; text-align: justify;">
+              Locate venues with dependable <strong>Wi-Fi</strong>, plenty of <strong>power outlets</strong>, and comfortable <strong>seating</strong>.
+          </p>
+      </div>
+      <div class="col-sm-4 xs-padding-top mb-4 mb-sm-0">
+          <i class="far fa-fw fa-smile fa-3x mb-3" style="color: #ff9f00;"></i>
+          <h3 class="subheading mb-3">Feel at Home</h3>
+          <p class="body-text text-justify px-3 py-2" style="font-size: 1.1rem; line-height: 1.6; text-align: justify;">
+              Find the <strong>optimal times to work</strong> based on community insights.
+          </p>
+      </div>
+      <div class="col-sm-4 xs-padding-top mb-4 mb-sm-0">
+          <i class="fa fa-fw fa-lightbulb fa-3x mb-3" style="color: #ffc107;"></i>
+          <h3 class="subheading mb-3">Stay Motivated</h3>
+          <p class="body-text text-justify px-3 py-2" style="font-size: 1.1rem; line-height: 1.6; text-align: justify;">
+              Discover new places with a <strong>relaxed atmosphere</strong> and <strong>friendly environment</strong>.
+          </p>
+      </div>
+  </section>
+  <hr>
+
+</div>
+
+    <!-- Community -->
+
+    <div class="container text-center" id="landing">
+    
+        <section>
+            <h2 class="subheading py-4">How It Works</h2>
+            <div class="row">
+                <div class="col-sm-6 padding-top-40">
+                    <a href="{{url_for('explore_cafe')}}">
+                        <!-- New image source for Workspaces -->
+                        <img class="benefit img-fluid" alt="Map of Work-Friendly Locations" src="../static/img/workcafe.jpg">
+                    </a>
+                    <h3 class="subheading py-2">Discover Nearby Workspaces</h3>
+                    <p class="body-text">Looking for peace, air-conditioning, or good lighting? Find a space that’s perfect for your needs!</p>
+                </div>
+                <div class="col-sm-6 padding-top-40">
+                    <a href="/users/register">
+                        <!-- New image source for Community -->
+                        <img class="benefit img-fluid" alt="Exoplore Cafe Community" src="../static/img/groupwork.jpeg">
+                    </a>
+                    <h3 class="subheading py-2">Connect with Professionals</h3>
+                    <p class="body-text">Network with skilled freelancers, digital nomads, and remote workers in a shared environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+    </div>
+
+<!-- Community Section -->
+
+<div class="container text-center py-5" id="landing">
+<section class="row justify-content-center">
+    <div class="col-md-8">
+        <p class="body-text text-justify px-3 py-2" 
+           style=" line-height: 1.7; text-align: justify;">
+            Explore | Cafe partners with local <strong>venues that are remote work-friendly</strong>. 
+            Each spot is thoroughly inspected by our team of caffeine-fueled experts before making the cut.
+        </p>
+    </div>
+</section>
+</div>
+    
+
+  
+
+{%  endblock %}
