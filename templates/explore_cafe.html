@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="text-center heading pt-lg-4">Explore Cities</h1>
+<h1 class="text-center heading pt-5">Explore Cities</h1>
 <hr>
 
-{% for country, cities in countries.items() %}
+<div class="py-4">
+    {% for country, cities in countries.items() %}
 
-<section class="text-center subheading py-lg-2">
-    <h2 class="secheading">{{ country }}</h2>
-    {% for city in cities %}
-    <a class="btn btn-default btn-lg" href="{{ url_for('search_cafe') }}?city_name={{ city }}">{{ city }}</a>
+    <section class="text-center subheading pt-lg-3 ">
+        <h2 class="secheading">{{ country }}</h2>
+        {% for city in cities %}
+        <a class="btn btn-default btn-lg" href="{{ url_for('search_cafe') }}?city_name={{ city }}">{{ city }}</a>
+        {% endfor %}
+    </section>
     {% endfor %}
-</section>
-{% endfor %}
-
+</div>
 {% endblock %}
