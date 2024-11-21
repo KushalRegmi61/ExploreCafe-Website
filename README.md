@@ -75,7 +75,8 @@ Check out the live version of the ExploreCafe website [here](https://yourwebsite
 3. Add new cafes by providing details like name, location, amenities, and an image.
 
  ## 🎥 DEMO
- Here is the short overview of the website.
+  Here is the overview of the website.
+ 
  ![Website Demo](static/img/demo.gif)
  
 
