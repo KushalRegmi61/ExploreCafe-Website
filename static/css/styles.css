@@ -42,45 +42,26 @@ html {
   color: #ffd700 !important; /* Gold color for hover effect */
 }
 
-
 /* General logo styling */
-.logo {
+.logo-text {
   position: relative; /* For positioning child elements */
   display: inline-flex;
   align-items: center;
-  font-family: "Cookie", cursive;
+  font-family: "Leckerli One", cursive;
   font-size: 2rem;
-  color: #ffffff; /* Default color for text */
+  font-weight: 500; /* Make the text bolder */
+  color: #ffd700; /* Default color for text */
 }
 
-/* Styling for the coffee cup icon */
-.cup-icon {
-  font-size: 3rem; /* Larger size for prominence */
-  color: #333333; /* Dark color for the coffee cup */
-  z-index: 1; /* Place the cup behind the text */
-  position: relative;
-}
-
-/* Styling for the text inside the cup */
-.logo-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the text */
-  z-index: 2; /* Place text above the cup */
-  color: #ffffff; /* White text for contrast */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for text */
-}
 
 /* Hover effect for the logo */
-.logo:hover .cup-icon {
+.logo:hover  {
   color: #ffffff; /* Change cup color to match branding */
 }
 
 .logo:hover .logo-text {
-  color: #ffd700; /* Premium gold color on hover */
+  color: #ffffff; /* Premium gold color on hover */
 }
-
 
 /* Headings */
 .heading {
@@ -349,9 +330,12 @@ list-inline-item a {
 }
 
 .cafe-card:hover .cafe-content {
-  background: linear-gradient(to bottom, #e9e4fc, #f3e8fd); /* Soft lavender tint on hover */
+  background: linear-gradient(
+    to bottom,
+    #e9e4fc,
+    #f3e8fd
+  ); /* Soft lavender tint on hover */
 }
-
 
 .cafe-card:hover .cafe-content h3 {
   color: #c770f0; /* Accent color on hover */
@@ -376,7 +360,6 @@ list-inline-item a {
   outline: 3px solid rgba(199, 112, 240, 0.2); /* Glow effect */
 }
 
-
 footer a {
   color: #a0a0a0;
   text-decoration: none;
@@ -398,13 +381,13 @@ footer i:hover {
 }
 
 footer h5 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #fff;
 }
 
 footer p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
   color: #a0a0a0;
 }
