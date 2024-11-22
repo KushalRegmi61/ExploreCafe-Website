@@ -1,4 +1,4 @@
-{% from "bootstrap5/form.html" import render_form %} 
+{% from "bootstrap5/form.html" import render_form %}
 {% extends "base.html" %}
 
 {% block content %}
@@ -21,53 +21,39 @@
   </div>
 </header>
 
-<!-- Main Content Section -->
-<div class="container py-5">
+<!-- Flash Messages Section -->
+<div class="container py-3">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
   <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10">
-      <!-- Add Cafe Form -->
-      <div class="card shadow-sm border-0 rounded-lg">
-        <div class="card-body">
-          <h2 class="subheading">Fill out the form to add a new cafe</h2>
-          
-          <!-- Render Form with Novalidate and Custom Submit Button -->
-          {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-        </div>
+      <div class="col-lg-8 col-md-10">
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
       </div>
-    </div>
   </div>
+  {% endif %}
+  {% endwith %}
 </div>
 
-<!-- Success or Error Modal (Visible on form submission result) -->
-<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="alertModalLabel">
-          {% if message_type == 'success' %}
-            Success!
-          {% else %}
-            Error!
-          {% endif %}
-        </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Main Content Section -->
+<div class="bg-dark container py-5">
+  <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+          <!-- Add Cafe Form -->
+          <div class="card shadow-sm border-0 rounded-lg">
+              <div class="card-body">
+                  <h2 class="subheading">Cafe Details</h2>
+                  {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+              </div>
+          </div>
       </div>
-      <div class="modal-body">
-        {{ message }} <!-- Success or Error message from Flask session -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn {% if message_type == 'success' %}btn-success{% else %}btn-danger{% endif %}" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
   </div>
 </div>
-
-<!-- JavaScript to trigger the modal if message is set -->
-{% if message %}
-  <script type="text/javascript">
-    var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-    alertModal.show();
-  </script>
-{% endif %}
 
 {% endblock %}
+
+
