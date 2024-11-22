@@ -5,11 +5,11 @@
 <!-- Page Header Section -->
 <header class="text-center py-5">
     <h1 class="subheading text-center">Update Cafe</h1>
-    <p class="body-text text-center">Update the details of the cafe.</p>
+    <p class="body-text text-center">Update the details of the cafe to keep your information accurate and up-to-date.</p>
 </header>
 
 <!-- Flash Messages Section -->
-<div class="container py-3">
+<!-- <div class="container py-3">
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
     <div class="row justify-content-center">
@@ -24,22 +24,20 @@
     </div>
     {% endif %}
     {% endwith %}
-</div>
-
-<!-- Main Content Section -->
-<div class="container py-5">
+  </div> -->
+  
+  <!-- Main Content Section -->
+<div class="bg-dark container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
-            <!-- Update Cafe Form -->
+            <!-- Add Cafe Form -->
             <div class="card shadow-sm border-0 rounded-lg">
                 <div class="card-body">
-                    <h2 class="subheading">Fill out the form to update the cafe</h2>
-                    <!-- Render Form with Novalidate and Custom Submit Button -->
-                    {{ render_form(form, novalidate=True, button_map={"submit": "success"}) }}
+                    <h2 class="subheading">Cafe Details</h2>
+                    {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+  </div>
 {% endblock %}
