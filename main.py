@@ -135,7 +135,10 @@ class AddCafeForm(FlaskForm):
 
 # Define the form for editing a cafe (inherits from AddCafeForm)
 class EditCafeForm(AddCafeForm):
-    pass
+
+    # Override the submit field with a new label
+    submit = SubmitField("Update Cafe", render_kw={"class": "btn btn-primary"})
+
 
 # Define the form for collecting feedback
 class FeedbackForm(FlaskForm):
@@ -274,7 +277,7 @@ def delete_cafe_confirm(cafe_id):
         flash(f'Cafe "{cafe.name}" has been deleted!', 'success')
     else:
         flash('Cafe not found.', 'danger')
-    return redirect(url_for('explore_cafe'))
+    return redirect(url_for('home'))
 
 # Feedback route
 @app.route('/send_feedback', methods=['GET', 'POST'])
