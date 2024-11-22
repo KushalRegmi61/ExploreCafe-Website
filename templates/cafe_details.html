@@ -25,6 +25,24 @@
     </div>
 </header>
 
+<!-- Flash Messages Section -->
+<div class="container py-3">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+  
 
 <!-- Main Content Section -->
 <!-- Main Content Section -->
@@ -72,7 +90,7 @@
                     </ul>
                     <!-- Action Buttons -->
                     <div class="d-flex justify-content-between mt-4">
-                        <a href="{{url_for('update_cafe')}}?post_id={{cafe.id}}" class="btn btn-outline-primary btn-sm">
+                        <a href="{{url_for('update_cafe')}}?cafe_id={{cafe.id}}" class="btn btn-outline-primary btn-sm">
                             <i class="fas fa-edit me-2"></i> Update Cafe
                         </a>
                         <a href="{{url_for('delete_cafe', cafe_id= cafe.id)}}" class="btn btn-outline-danger btn-sm">
