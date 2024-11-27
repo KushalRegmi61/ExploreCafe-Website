@@ -51,10 +51,10 @@
     {% endblock %}
   </head>
   <body>
-
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark py-2" id="mainNavs" style="background-color: #6f42c1;">
-  <div class="container-fluid px-4">
+    <div class="wrapper">
+  <!-- Navigation-->
+    <nav nav class="navbar navbar-expand-lg navbar-dark py-2" id="mainNavs" style="background: linear-gradient(135deg, #6f42c1, #8e44ad);">
+      <div class="container-fluid px-4">
     
     <!-- Logo for the website -->
     <a class="navbar-brand logo" href="/" style="position: relative;">
@@ -134,9 +134,11 @@
     {% block content %}
 
     {% endblock %}
-    
+  
+  </div>
 <!-- Footer -->
-<footer class="text-white py-lg-11" style="background-color: #6f42c1;">
+<footer class="text-white custom-footer py-4" style="background: linear-gradient(135deg, #6f42c1, #8e44ad);">
+
   <div class="container px-4 px-lg-5 py-lg-5">
       <div class="row justify-content-between align-items-center">
           <!-- Logo and Tagline -->
