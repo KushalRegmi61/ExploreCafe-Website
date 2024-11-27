@@ -24,14 +24,22 @@
   
 
 <div class="py-4">
+    {% if countries %}
     {% for country, cities in countries.items() %}
 
     <section class="text-center subheading pt-lg-3 ">
         <h2 class="secheading">{{ country }}</h2>
         {% for city in cities %}
-        <a class="btn btn-default btn-lg" href="{{ url_for('search_cafe') }}?city_name={{ city }}">{{ city }}</a>
+        <a class="btn btn-default btn-lg" href="{{ url_for('search_cafe', city_name=city) }}">{{ city }}</a>
         {% endfor %}
     </section>
     {% endfor %}
+    {% else %}
+    <div class="alert alert-info text-center body-text" role="alert">
+        <a class="ambassador d-block mt-3" style="text-align: center;" href="{{ url_for('add_cafe') }}">
+            No cafes found. Please suggest a new place!
+        </a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
