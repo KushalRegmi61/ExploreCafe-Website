@@ -17,6 +17,26 @@ html {
   --imp-text-color: #c770f0;
 }
 
+html, body {
+  height: 100%;          /* Ensure the body and html fill the full height */
+  margin: 0;             /* Remove any default margin */
+  display: flex;         /* Use Flexbox to manage layout */
+  flex-direction: column; /* Stack children vertically */
+}
+
+.wrapper {
+  flex: 1;               /* Pushes the footer to the bottom when content is insufficient */
+  display: flex;         /* Allows flexibility for additional layout within the wrapper */
+  flex-direction: column;
+}
+
+footer {
+  flex-shrink: 0;        /* Prevents footer from shrinking or overlapping */
+}
+
+
+
+
 /* Navigation Links */
 .nav-link,
 .nav-item {
@@ -43,21 +63,46 @@ html {
 }
 
 /* General logo styling */
-.logo-text {
-  position: relative; /* For positioning child elements */
+.logo {
   display: inline-flex;
   align-items: center;
   font-family: "Leckerli One", cursive;
   font-size: 2rem;
-  font-weight: 500; /* Make the text bolder */
-  color: #ffd700; /* Default color for text */
+  font-weight: 800; /* Make the text bolder */
+  color: #00bcd4; /* Light teal/cyan color to stand out from the rest */
+  letter-spacing: 2px; /* Spacing between the letters for a clean, modern look */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover effects */
 }
 
+.logo-text {
+  position: relative;
+}
 
 /* Hover effect for the logo */
-.logo:hover  {
-  color: #ffffff; /* Change cup color to match branding */
+.logo:hover {
+  color: #8e44ad; /* Purple color on hover, which complements the theme */
+  transform: scale(1.1); /* Slightly enlarge the logo text on hover */
 }
+
+/* Optional underline effect for logo hover */
+.logo:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #8e44ad; /* Purple underline effect */
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+/* Custom icon styles (if you have icons inside the logo) */
+.logo-text i {
+  margin-right: 0.5rem; /* Space between icon and text */
+  color: #8e44ad; /* Set icon color to purple */
+  font-size: 1.3rem; /* Slightly larger icon for emphasis */
+}
+
 
 .logo:hover .logo-text {
   color: #ffffff; /* Premium gold color on hover */
@@ -366,28 +411,6 @@ footer a {
   transition: color 0.3s ease;
 }
 
-footer a:hover {
-  color: #1dbf73; /* A vibrant green for hover */
-  text-decoration: underline;
-}
-
-footer i {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-footer i:hover {
-  color: #1dbf73;
-  transform: scale(1.2);
-}
-
-footer h5 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #fff;
-}
-
-footer p {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.9rem;
-  color: #a0a0a0;
+.custom-footer {
+  padding: 10px 0; /* Adjust top and bottom padding */
 }
